@@ -1,4 +1,5 @@
 using DtAPI.Data;
+using DtAPI.Seeder;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -54,6 +55,9 @@ namespace DtAPI
             {
                 endpoints.MapControllers();
             });
+
+            //ApiDbInitializer.Seed(app);
+
         }
     }
 }

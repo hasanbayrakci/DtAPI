@@ -7,6 +7,7 @@ namespace DtAPI
 {
     public class DtApi
     {
+        public int Id { get; set; }
         public int user_id { get; set; }
         public string kurum_adi { get; set; }
         public string ilan_adi { get; set; }
