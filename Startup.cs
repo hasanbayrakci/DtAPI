@@ -1,5 +1,6 @@
 using DtAPI.Data;
 using DtAPI.Seeder;
+using DtAPI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,6 +35,8 @@ namespace DtAPI
             services.AddControllers();
 
             services.AddDbContext<ApiDbContext>(options => options.UseSqlServer(ConnectionString));
+
+            services.AddTransient<DtApiService>();
 
         }
 

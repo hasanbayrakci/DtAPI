@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using DtAPI.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,14 @@ namespace DtAPI.Controllers
     public class DtApiController : ControllerBase
     {
 
+        public DtApiService _apiService;
+
+        public DtApiController(DtApiService apiService)
+        {
+            _apiService = apiService;
+        }
+
+        /*
         [HttpGet]
         public DtApi Get()
         {
@@ -20,5 +29,14 @@ namespace DtAPI.Controllers
                 
             };
         }
+        */
+
+        [HttpPost("add-ilan")]
+        public IActionResult AddIlan([FromBody]DtApi dtApi)
+        {
+            _apiService.AddIlan(dtApi);
+            return Ok();
+        }
+
     }
 }
