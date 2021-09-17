@@ -31,10 +31,38 @@ namespace DtAPI.Controllers
         }
         */
 
-        [HttpPost("add-ilan")]
+        [HttpGet("getAllIlan")]
+        public IActionResult GetAllIlan()
+        {
+            var allIlan = _apiService.GetAllIlan();
+            return Ok(allIlan);
+        }
+
+        [HttpGet("getIlan/{id}")]
+        public IActionResult GetlanById(int id)
+        {
+            var ilan = _apiService.GetIlanById(id);
+            return Ok(ilan);
+        }
+
+        [HttpPost("addIlan")]
         public IActionResult AddIlan([FromBody]DtApi dtApi)
         {
             _apiService.AddIlan(dtApi);
+            return Ok();
+        }
+
+        [HttpPut("updateIlan/{id}")]
+        public IActionResult UpdateIlan(int id, [FromBody]DtApi dtApi)
+        {
+            var updatedIlan =_apiService.UpdateIlanById(id,dtApi);
+            return Ok(updatedIlan);
+        }
+
+        [HttpDelete("deleteIlan/{id}")]
+        public IActionResult DeleteIlan(int id)
+        {
+            _apiService.DeleteIlanById(id);
             return Ok();
         }
 
