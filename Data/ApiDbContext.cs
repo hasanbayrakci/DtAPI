@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DtAPI.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,7 @@ namespace DtAPI.Data
         }
 
         public DbSet<DtApi> DtApis { get; set; }
+        public DbSet<Users> Users { get; set; }
+
     }
 }

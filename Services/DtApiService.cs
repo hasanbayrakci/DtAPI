@@ -1,4 +1,5 @@
 ﻿using DtAPI.Data;
+using DtAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -61,6 +62,17 @@ namespace DtAPI.Services
             }
         }
 
+        public String Login(Users users)
+        {
+            var _users = _context.Users.Where(n => n.username == users.username && n.password == users.password).ToList();
+            string token = "Kullanıcı bulunamadı.";
+
+            if (_users.Count > 0)
+            {
+                token = "Yetkili Kullanıcı";
+            }
+            return token;
+        }
 
     }
 }

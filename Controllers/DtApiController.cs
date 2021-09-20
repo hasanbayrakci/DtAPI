@@ -1,4 +1,5 @@
-﻿using DtAPI.Services;
+﻿using DtAPI.Models;
+using DtAPI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -64,6 +65,13 @@ namespace DtAPI.Controllers
         {
             _apiService.DeleteIlanById(id);
             return Ok();
+        }
+
+        [HttpPost("login")]
+        public IActionResult Login([FromBody] Users users)
+        {
+            var _login = _apiService.Login(users);
+            return Ok(_login);
         }
 
     }
